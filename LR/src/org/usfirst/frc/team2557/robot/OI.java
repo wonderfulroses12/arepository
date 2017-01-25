@@ -8,12 +8,12 @@ import org.usfirst.frc.team2557.robot.commands.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-public static Joystick joystick1;
+public Joystick joystick1;
 	
-	public static JoystickButton joystickbutton1;
-	public static JoystickButton joystickbutton2;
+	public JoystickButton joystickbutton1;
+	public JoystickButton joystickbutton2;
 	
-	public static void oi(){
+	public OI(){
 		joystick1 = new Joystick(0);
 		
 		joystickbutton1 = new JoystickButton(joystick1, 1);

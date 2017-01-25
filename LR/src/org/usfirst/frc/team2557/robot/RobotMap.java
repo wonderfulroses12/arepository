@@ -28,7 +28,7 @@ public class RobotMap {
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
+    // public static int rangefinderPort = 1;s
     // public static int rangefinderModule = 1;
 	public static void init(){
 		leftFront = new CANTalon(7);
@@ -38,7 +38,11 @@ public class RobotMap {
 		leftactuator = new CANTalon(2);
 		rightactuator = new CANTalon(3);
 		intakemotor = new CANTalon(4);
-		
-		drive = new RobotDrive(leftFront,rightFront,leftBack,rightBack);
+		leftFront.setInverted(true);
+		rightFront.setInverted(true);
+		leftBack.setInverted(true);
+		rightBack.setInverted(true);
+		drive = new RobotDrive(leftFront,leftBack,rightFront,rightBack);
+		drive.setSafetyEnabled(false);
 	}
 }
