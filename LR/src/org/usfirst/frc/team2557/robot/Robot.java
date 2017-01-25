@@ -7,8 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team2557.robot.commands.*;
-import org.usfirst.frc.team2557.robot.subsystems.arm;
-import org.usfirst.frc.team2557.robot.subsystems.drivetrain;
+import org.usfirst.frc.team2557.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -25,21 +24,30 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static drivetrain drivetrain;
 	public static arm Arm;
+	public static intakesubsystem intakesubsystem;
     Command autonomousCommand;
     SendableChooser chooser;
     Command ArmCommand;
     Command DriveCommand;
+    Command intakeincommand;
+    Command intakeoutcommand;
+    
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
     	RobotMap.init();
-		drivetrain = new drivetrain();
+		
+    	drivetrain = new drivetrain();
 		Arm = new arm();
+		intakesubsystem = new intakesubsystem();
 		
 		ArmCommand = new armcommand();
 		DriveCommand = new LRdrivecommand();
+		intakeincommand = new intakeincommand();
+		intakeoutcommand = new intakeoutcommand();
 		
 		oi = new OI();
 		
@@ -109,6 +117,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         DriveCommand.start();
+       ArmCommand.start();
     }
     
     /**

@@ -18,7 +18,7 @@ public class RobotMap {
 	public static RobotDrive drive;
 	public static CANTalon leftactuator;
 	public static CANTalon rightactuator;
-	
+	public static CANTalon intakemotor;
 	
 	
     // For example to map the left and right motors, you could define the
@@ -37,6 +37,7 @@ public class RobotMap {
 		rightBack = new CANTalon(5);
 		leftactuator = new CANTalon(2);
 		rightactuator = new CANTalon(3);
+		intakemotor = new CANTalon(4);
 		
 		drive = new RobotDrive(leftFront,rightFront,leftBack,rightBack);
 	}
