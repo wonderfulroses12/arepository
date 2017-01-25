@@ -2,6 +2,7 @@ package org.usfirst.frc.team2557.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2557.robot.commands.LRdrivecommand;
+import org.usfirst.frc.team2557.robot.commands.armcommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -11,12 +12,16 @@ public class OI {
 public static Joystick joystick1;
 	
 	public static JoystickButton joystickbutton1;
-	
+	public static JoystickButton joystickbutton2;
 	
 	public static void oi(){
 		joystick1 = new Joystick(0);
 		
+		joystickbutton1 = new JoystickButton(joystick1, 1);
+		joystickbutton2 = new JoystickButton(joystick1, 2);
+		
 		joystickbutton1.whileHeld(new LRdrivecommand());
+		joystickbutton2.whileHeld(new armcommand());
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

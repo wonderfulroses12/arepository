@@ -16,6 +16,10 @@ public class RobotMap {
 	public static CANTalon leftBack;
 	public static CANTalon rightBack;
 	public static RobotDrive drive;
+	public static CANTalon leftactuator;
+	public static CANTalon rightactuator;
+	
+	
 	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
@@ -27,11 +31,13 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	public static void init(){
-		leftFront = new CANTalon(5);
-		rightFront = new CANTalon(6);
-		leftBack = new CANTalon(7);
-		rightBack = new CANTalon(8);
+		leftFront = new CANTalon(7);
+		rightFront = new CANTalon(8);
+		leftBack = new CANTalon(6);
+		rightBack = new CANTalon(5);
+		leftactuator = new CANTalon(2);
+		rightactuator = new CANTalon(3);
 		
-		drive = new RobotDrive(5,6,7,8);
+		drive = new RobotDrive(leftFront,rightFront,leftBack,rightBack);
 	}
 }
