@@ -12,15 +12,18 @@ public Joystick joystick1;
 	
 	public JoystickButton joystickbutton1;
 	public JoystickButton joystickbutton2;
+	public JoystickButton joystickbutton3;
 	
 	public OI(){
 		joystick1 = new Joystick(0);
 		
 		joystickbutton1 = new JoystickButton(joystick1, 1);
 		joystickbutton2 = new JoystickButton(joystick1, 2);
+		joystickbutton3 = new JoystickButton(joystick1, 3);
 		
 		joystickbutton1.whileHeld(new intakeincommand());
 		joystickbutton2.whileHeld(new intakeoutcommand());
+		joystickbutton3.whenPressed(new climbercommand());
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

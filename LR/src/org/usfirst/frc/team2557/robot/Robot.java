@@ -25,12 +25,14 @@ public class Robot extends IterativeRobot {
 	public static drivetrain drivetrain;
 	public static arm Arm;
 	public static intakesubsystem intakesubsystem;
+	public static climber climber;
     Command autonomousCommand;
     SendableChooser chooser;
     Command ArmCommand;
     Command DriveCommand;
     Command intakeincommand;
     Command intakeoutcommand;
+    Command climbercommand;
     
     
     /**
@@ -43,11 +45,13 @@ public class Robot extends IterativeRobot {
     	drivetrain = new drivetrain();
 		Arm = new arm();
 		intakesubsystem = new intakesubsystem();
+		climber = new climber();
 		
 		ArmCommand = new armcommand();
 		DriveCommand = new LRdrivecommand();
 		intakeincommand = new intakeincommand();
 		intakeoutcommand = new intakeoutcommand();
+		climbercommand = new climbercommand();
 		
 		oi = new OI();
 		
