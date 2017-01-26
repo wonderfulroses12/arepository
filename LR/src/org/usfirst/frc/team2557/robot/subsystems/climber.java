@@ -18,13 +18,11 @@ public class climber extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void climberarm(){
-    	if(ArmUp == false){
+    	if(ArmUp == false && RobotMap.arm.get() == 0){
     	RobotMap.arm.set(1);
     	ArmUp = true;
     	}
-    	else{
-    		RobotMap.arm.set(0);;
-    	}
+    	RobotMap.arm.set(0);
     }
     
 }
