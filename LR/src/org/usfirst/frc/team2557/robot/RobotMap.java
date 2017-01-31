@@ -2,8 +2,10 @@ package org.usfirst.frc.team2557.robot;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -21,6 +23,8 @@ public class RobotMap {
 	public static CANTalon rightactuator;
 	public static CANTalon intakemotor;
 	public static Servo arm;
+	public static Gyro agyro;
+	public static Servo aservo;
 	
 	
     // For example to map the left and right motors, you could define the
@@ -44,9 +48,12 @@ public class RobotMap {
 		rightFront.setInverted(true);
 		leftBack.setInverted(true);
 		rightBack.setInverted(true);
+		
 		drive = new RobotDrive(leftFront,leftBack,rightFront,rightBack);
 		drive.setSafetyEnabled(false);
 		
 		arm = new Servo(4);
+		agyro = new AnalogGyro(9);
+		aservo = new Servo(1);
 	}
 }

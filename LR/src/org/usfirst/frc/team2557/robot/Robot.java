@@ -26,6 +26,9 @@ public class Robot extends IterativeRobot {
 	public static arm Arm;
 	public static intakesubsystem intakesubsystem;
 	public static climber climber;
+	public static SmartDash smartDash;
+	public static asubsystem asubsystem;
+	public static servosubsystem servosubsystem;
     Command autonomousCommand;
     SendableChooser chooser;
     Command ArmCommand;
@@ -33,6 +36,10 @@ public class Robot extends IterativeRobot {
     Command intakeincommand;
     Command intakeoutcommand;
     Command climbercommand;
+    Command DashCommand;
+    Command gyrocommand;
+    Command servocommand;
+    Command acommandgroup;
     
     
     /**
@@ -46,12 +53,20 @@ public class Robot extends IterativeRobot {
 		Arm = new arm();
 		intakesubsystem = new intakesubsystem();
 		climber = new climber();
+		smartDash = new SmartDash();
+		asubsystem = new asubsystem();
+		servosubsystem = new servosubsystem();
 		
 		ArmCommand = new armcommand();
 		DriveCommand = new LRdrivecommand();
 		intakeincommand = new intakeincommand();
 		intakeoutcommand = new intakeoutcommand();
 		climbercommand = new climbercommand();
+		DashCommand = new DashCommand();
+		gyrocommand = new gyrocommand();
+		servocommand = new servocommand();
+		acommandgroup = new acommandgroup();
+		
 		
 		oi = new OI();
 		
@@ -104,6 +119,9 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+    	DashCommand.start();
+    	gyrocommand.start();
+    	servocommand.start();
         Scheduler.getInstance().run();
     }
 
@@ -122,6 +140,9 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         DriveCommand.start();
        ArmCommand.start();
+       DashCommand.start();
+       gyrocommand.start();
+       servocommand.start();
     }
     
     /**

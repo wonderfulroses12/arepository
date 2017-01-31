@@ -7,9 +7,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class climber extends Subsystem {
-	
-	public boolean ArmUp = false;
+public class servosubsystem extends Subsystem {
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -17,13 +16,11 @@ public class climber extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void climberarm(){
-    	if(ArmUp == false && RobotMap.arm.get() == 0){
-    	RobotMap.arm.set(1);
-    	ArmUp = true;
-    	}
-    	RobotMap.arm.set(0);
-    }
+    public void servoname(){
+    	RobotMap.aservo.getAngle();
     
-}
+    }
+
+    }
+
 
